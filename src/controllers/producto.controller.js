@@ -15,8 +15,8 @@ const listarProductos = async (req, res) => {
     res.status(200).json({
       ok: true,
       total: productos.length,
-      data: productos
-    })
+      data: productos,
+    });
   } catch (e) {
     console.error(e);
     res.status(500).json({
@@ -26,8 +26,34 @@ const listarProductos = async (req, res) => {
   }
 };
 
+//Buscar ¿cómo funciona?
+//API REST http://miaplicacion.com/api/productos/1
+/** @type {import('express').RequestHandler} */
 const obtenerProducto = async (req, res) => {
   try {
+    const id = Number(req.params.id);
+    if (id <= 0) {
+      return res.status(400).json({
+        ok: false,
+        message: "El ID no puede ser negativo o cero",
+      });
+    }
+
+    const [registro] = await pool.execute(
+      "SELECT * FROM productos WHERE id = ?",
+      [id],
+    );
+    if (registro.length === 0) {
+      return res.status(404).json({
+        ok: false,
+        message: "No existe el producto",
+      });
+    }
+
+    return res.status(200).json({
+      ok: true,
+      data: registro[0]
+    });
   } catch (e) {
     console.error(e);
     res.status(500).json({
