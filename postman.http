@@ -39,3 +39,23 @@ content-type: application/json
   "precio": 5200,
   "stock": -2
 }
+
+###
+
+GET http://localhost:3000/api/productos/11
+
+###
+
+PUT http://localhost:3000/api/productos/11
+content-type: application/json
+
+{
+  "marca": "Dell",
+  "descripcion": "Servidor profesional",
+  "precio": 12000,
+  "stock": 2
+}
+
+###
+
+DELETE http://localhost:3000/api/productos/11
