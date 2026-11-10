@@ -1,0 +1,41 @@
+GET http://localhost:3000
+
+###
+
+GET http://localhost:3000/api/productos
+
+### Probar exito 1
+
+POST http://localhost:3000/api/productos
+content-type: application/json
+
+{
+  "marca": "Dell",
+  "descripcion": "Computadora todo en uno",
+  "precio": 5200,
+  "stock": 2
+}
+
+### Probar exito 2
+
+POST http://localhost:3000/api/productos
+content-type: application/json
+
+{
+  "marca": "AMD",
+  "descripcion": "AMD Ryzen 5500",
+  "precio": 1980,
+  "stock": 2
+}
+
+### Probar fallo
+
+POST http://localhost:3000/api/productos
+content-type: application/json
+
+{
+  "marca": "",
+  "descripcion": "Computadora todo en uno",
+  "precio": 5200,
+  "stock": -2
+}
