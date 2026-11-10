@@ -1,0 +1,5 @@
+{
+  "code-runner.executorMapByGlob": {
+    "*": "cd $workspaceRoot && node src/server.js"
+  },
+}

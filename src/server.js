@@ -1,5 +1,5 @@
 //Necesita que app haya gestiona toda la configuracion
-const app = require(" ./app");
+const app = require("./app");
 const { port } = require("./config/env");
 const { probarConexion } = require("./config/database");
 
