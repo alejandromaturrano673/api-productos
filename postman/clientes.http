@@ -1,0 +1,54 @@
+@apiUrl = http://localhost:3000/api/clientes
+@itemId = {{create.response.body.id}}
+
+###
+
+GET {{apiUrl}}
+
+### Probar exito
+
+# @name create
+POST {{apiUrl}}
+content-type: application/json
+
+{
+  "apellidos": "Rojas Huamán",
+  "nombres": "Sofía Valentina",
+  "telefono": "954321987",
+  "direccion": "Av. Benavides 890, Miraflores",
+  "email": "sofia.rojas@email.com"
+}
+
+### Probar fallo
+
+POST {{apiUrl}}
+content-type: application/json
+
+{
+  "apellidos": "",
+  "nombres": "",
+  "telefono": "954321987",
+  "direccion": "Av. Benavides 890, Miraflores",
+  "email": "sofia.rojas@email.com"
+}
+
+###
+
+GET {{apiUrl}}/{{itemId}}
+
+###
+
+PUT {{apiUrl}}/{{itemId}}
+content-type: application/json
+
+{
+  "apellidos": "Rojas Huamán",
+  "nombres": "Sofía Valentina",
+  "telefono": "999111222",
+  "direccion": "Calle Los Pinos 450, San Isidro",
+  "email": "srojas.nuevo@email.com"
+}
+
+###
+
+DELETE {{apiUrl}}/{{itemId}}

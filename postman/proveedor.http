@@ -1,0 +1,51 @@
+@apiUrl = http://localhost:3000/api/proveedores
+@itemId = {{create.response.body.id}}
+
+###
+
+GET {{apiUrl}}
+
+### Probar exito
+
+# @name create
+POST {{apiUrl}}
+content-type: application/json
+
+{
+  "razonsocial": "Corporación Digital Andina SAC",
+  "contacto": "Jorge Ramírez",
+  "ruc": "20605544332",
+  "direccion": "Av. La Marina 2150, San Miguel"
+}
+
+### Probar fallo
+
+POST {{apiUrl}}
+content-type: application/json
+
+{
+  "razonsocial": "",
+  "contacto": "",
+  "ruc": "",
+  "direccion": "Av. La Marina 2150, San Miguel"
+}
+
+###
+
+GET {{apiUrl}}/{{itemId}}
+
+###
+
+PUT {{apiUrl}}/{{itemId}}
+content-type: application/json
+
+{
+  "razonsocial": "Corporación Digital Andina SAC",
+  "contacto": "Mariana Paredes",
+  "ruc": "20605544332",
+  "direccion": "Av. El Derby 254, Santiago de Surco"
+}
+
+###
+
+DELETE {{apiUrl}}/{{itemId}}

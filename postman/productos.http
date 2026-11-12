@@ -1,12 +1,14 @@
-GET http://localhost:3000
+@apiUrl = http://localhost:3000/api/productos
+@itemId = {{create.response.body.id}}
 
 ###
 
-GET http://localhost:3000/api/productos
+GET {{apiUrl}}
 
 ### Probar exito 1
 
-POST http://localhost:3000/api/productos
+# @name create
+POST {{apiUrl}}
 content-type: application/json
 
 {
@@ -18,7 +20,8 @@ content-type: application/json
 
 ### Probar exito 2
 
-POST http://localhost:3000/api/productos
+# @name create
+POST {{apiUrl}}
 content-type: application/json
 
 {
@@ -30,7 +33,7 @@ content-type: application/json
 
 ### Probar fallo
 
-POST http://localhost:3000/api/productos
+POST {{apiUrl}}
 content-type: application/json
 
 {
@@ -42,11 +45,11 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/api/productos/11
+GET {{apiUrl}}/{{itemId}}
 
 ###
 
-PUT http://localhost:3000/api/productos/11
+PUT {{apiUrl}}/{{itemId}}
 content-type: application/json
 
 {
@@ -58,4 +61,4 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/productos/11
+DELETE {{apiUrl}}/{{itemId}}
