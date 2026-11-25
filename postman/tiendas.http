@@ -1,0 +1,57 @@
+@apiUrl = http://localhost:3000/api/tiendas
+@itemId = {{create.response.body.id}}
+
+###
+
+GET {{apiUrl}}
+
+### Probar exito
+
+# @name create
+POST {{apiUrl}}
+content-type: application/json
+
+{
+  "ciudad": "Sunampe",
+  "direccion": "Av. Progreso 245",
+  "telefono": "956482130",
+  "responsable": "Lucía Torres",
+  "apertura": "08:30:00",
+  "cierre": "20:00:00"
+}
+
+### Probar fallo
+
+POST {{apiUrl}}
+content-type: application/json
+
+{
+  "ciudad": "",
+  "direccion": "",
+  "telefono": "",
+  "responsable": "",
+  "apertura": "",
+  "cierre": ""
+}
+
+###
+
+GET {{apiUrl}}/{{itemId}}
+
+###
+
+PUT {{apiUrl}}/{{itemId}}
+content-type: application/json
+
+{
+  "ciudad": "Chincha Alta",
+  "direccion": "Calle Lima 350, Int. 2",
+  "telefono": "956123456",
+  "responsable": "María Quispe",
+  "apertura": "09:00:00",
+  "cierre": "21:30:00"
+}
+
+###
+
+DELETE {{apiUrl}}/{{itemId}}

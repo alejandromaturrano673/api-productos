@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS productos (
   descripcion VARCHAR(200) NOT NULL,
   precio DECIMAL(10, 2) NOT NULL,
   stock INT UNSIGNED NOT NULL DEFAULT 0,
-  create_at DATETIME NOT NULL DEFAULT NOW (),
+  create_at DATETIME NOT NULL DEFAULT NOW(),
   update_at DATETIME NULL
 ) ENGINE = INNODB;
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS clientes (
   telefono VARCHAR(10) NULL,
   direccion VARCHAR(200) NULL,
   email VARCHAR(100) NULL,
-  create_at DATETIME NOT NULL DEFAULT NOW (),
+  create_at DATETIME NOT NULL DEFAULT NOW(),
   updated_at DATETIME NULL
 ) ENGINE = INNODB;
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS proveedores (
   contacto VARCHAR(100) NOT NULL,
   ruc VARCHAR(11) NOT NULL,
   direccion VARCHAR(200) NULL,
-  create_at DATETIME NOT NULL DEFAULT NOW (),
+  create_at DATETIME NOT NULL DEFAULT NOW(),
   updated_at DATETIME NULL
 ) ENGINE = INNODB;
 
@@ -105,3 +105,56 @@ SELECT
   *
 FROM
   proveedores;
+
+--
+CREATE TABLE IF NOT EXISTS tiendas (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ciudad VARCHAR(100) NOT NULL,
+  direccion VARCHAR(200) NOT NULL,
+  telefono VARCHAR(20) NOT NULL,
+  responsable VARCHAR(100) NOT NULL,
+  apertura TIME NOT NULL,
+  cierre TIME NOT NULL,
+  create_at DATETIME NOT NULL DEFAULT NOW(),
+  update_at DATETIME NULL
+) ENGINE = INNODB;
+
+INSERT INTO
+  tiendas (
+    ciudad,
+    direccion,
+    telefono,
+    responsable,
+    apertura,
+    cierre
+  )
+VALUES
+  (
+    'Lima',
+    'Av. Javier Prado Este 4200',
+    '987654321',
+    'Carlos Mendoza',
+    '09:00:00',
+    '21:00:00'
+  ),
+  (
+    'Chincha Alta',
+    'Calle Lima 350',
+    '956123456',
+    'María Quispe',
+    '08:30:00',
+    '20:00:00'
+  ),
+  (
+    'Arequipa',
+    'Av. Ejército 793',
+    '958741236',
+    'Jorge Salazar',
+    '10:00:00',
+    '22:00:00'
+  );
+
+SELECT
+  *
+FROM
+  tiendas;

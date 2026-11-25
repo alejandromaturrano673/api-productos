@@ -10,6 +10,7 @@ const { Router } = require("express");
 const productoRoutes = require("./producto.routes");
 const clienteRoutes = require("./cliente.routes");
 const proveedorRoutes = require("./proveedor.routes");
+const tiendaRoutes = require("./tienda.routes");
 
 //Esto es solo uno para todas las rutas
 const router = Router();
@@ -19,6 +20,7 @@ router.use("/productos", productoRoutes);
 
 router.use("/clientes", clienteRoutes);
 router.use("/proveedores", proveedorRoutes);
+router.use("/tiendas", tiendaRoutes);
 
 //Se exportan todas las rutas
 module.exports = router;
